@@ -1,4 +1,4 @@
-# PhoenixGon 
+# PhoenixGon [![Hex.pm](https://img.shields.io/hexpm/v/plug.svg)](https://hex.pm/packages/phoenix_gon)
 ## Your Phoenix variables in your JavaScript.
 
 ![img](http://res.cloudinary.com/dtoqqxqjv/image/upload/v1492849051/github/gon.png)
