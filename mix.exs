@@ -7,33 +7,35 @@ defmodule PhoenixGon.Mixfile do
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps(),
      description: description(),
-     package: package()]
+     package: package(),
+     deps: deps()]
   end
 
   def application do
-    [extra_applications: [:logger]]
+    [applications: [:logger]]
   end
 
-  defp deps do
-    [{:ex_doc, ">= 0.0.0", only: :dev},
-     {:poison, "~> 2.0"},
-     {:plug, "~> 1.0"}]
-  end
 
   defp description do
     """
-    Description
+    PhoenixGon hex - get your Phoenix variabales is your JavaScript.
     """
   end
 
   defp package do
     [name: :phoenix_gon,
-     files: ~w{lib, config} ++
+     files: ~w{lib, config, test} ++
             ~w{mix.exs README.md},
      maintainers: ["Marat Khusnetdinov"],
      licenses: ["MIT"],
      links: %{"GitHub" => "https://github.com/khusnetdinov/phoenix_gon"}   ]
+  end
+
+  defp deps do
+    [{:ex_doc, ">= 0.0.0", only: :dev},
+     {:poison, "~> 2.0"},
+     {:phoenix_html, "~> 2.7"},
+     {:plug, "~> 1.0"}]
   end
 end

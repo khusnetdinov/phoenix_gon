@@ -3,5 +3,5 @@ defmodule PhoenixGon.Storage do
   """
 
   @doc false
-  defstruct env: nil, assets: %{}, compability: nil, namespace: nil
+  defstruct env: nil, assets: %{}, compability: :native, namespace: nil
 end

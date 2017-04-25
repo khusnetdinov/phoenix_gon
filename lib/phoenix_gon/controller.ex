@@ -1,5 +1,6 @@
 defmodule PhoenixGon.Web do
   import Plug.Conn
+  import PhoenixGon.Utils
 
   @moduledoc """
   """
@@ -72,14 +73,10 @@ defmodule PhoenixGon.Web do
 
 
   @doc false
-  @spec variables(Plug.Conn.t) :: Plug.Conn.t
-  defp variables(conn), do: conn.private[:phoenix_gon]
-
-
-  @doc false
   defmacro __using__([]) do
     quote do
       import PhoenixGon.Web
     end
   end
 end
+

@@ -1,9 +1,9 @@
 defmodule PhoenixGon.Pipeline do
   import Plug.Conn
 
-
   @moduledoc """
   """
+
 
   @doc """
   """
@@ -12,7 +12,7 @@ defmodule PhoenixGon.Pipeline do
   %{
     env: Keyword.get(defaults, :env, Mix.env),
     assets: Keyword.get(defaults, :assets, %{}),
-    namespace: Keyword.get(defaults, :namespace, nil)
+    namespace: Keyword.get(defaults, :namespace, nil),
   }
   end
 
