@@ -75,12 +75,4 @@ defmodule PhoenixGon.Controller do
   def get_gon(conn, key) when is_atom(key) do
     Map.get(variables(conn).assets, key)
   end
-
-
-  @doc false
-  defmacro __using__([]) do
-    quote do
-      import PhoenixGon.Controller
-    end
-  end
 end

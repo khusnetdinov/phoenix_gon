@@ -40,9 +40,8 @@ Plug accepts options:
 
 ```elixir
 defmodule Project.LayoutView do
-  use Project.Web, :view
-  use PhoenixGon.View
-
+  ...
+  import PhoenixGon.View
   ...
 end
 
@@ -68,11 +67,9 @@ For using gon in controllers just add:
 
 ```elixir
 defmodule Project.Controller do
-  use Project.Web, :controller
-  use PhoenixGon.Controller
-
   ...
-
+  use PhoenixGon.Controller
+  ...
 end
 ```
 

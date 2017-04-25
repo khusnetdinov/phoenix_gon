@@ -50,12 +50,4 @@ defmodule PhoenixGon.View do
     })(window);
     """
   end
-
-
-  @doc false
-  defmacro __using__([]) do
-    quote do
-      import PhoenixGon.View
-    end
-  end
 end
