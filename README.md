@@ -1,4 +1,4 @@
-# PhoenixGon [![Hex.pm](https://img.shields.io/hexpm/v/plug.svg)](https://hex.pm/packages/phoenix_gon)
+# PhoenixGon [![Hex.pm](https://img.shields.io/hexpm/v/plug.svg)](https://hex.pm/packages/phoenix_gon) [![Build Status](https://travis-ci.org/khusnetdinov/phoenix_gon.svg?branch=master)](https://travis-ci.org/khusnetdinov/phoenix_gon)
 ## Your Phoenix variables in your JavaScript.
 
 ![img](http://res.cloudinary.com/dtoqqxqjv/image/upload/v1492849051/github/gon.png)
@@ -24,7 +24,7 @@ end
 defmodule Project.Endpoint do
 
   ...
-  
+
   plug PhoenixGon.Pipeline
   plug Project.Router
 end
@@ -35,25 +35,25 @@ Plug accepts options:
     - `:env` - this option for hard overloading Mix.env.
     - `:namespace` - namescpase for javacript object in global window space.
     - `:assets` - map for keeping permament variables in javascript.
-    
+
 2) Add possibility to use view helper by adding `use PhoenixGon.View` in templates in `web/views/layout_view.ex` file:
 
 ```elixir
 defmodule Project.LayoutView do
   use Project.Web, :view
   use PhoenixGon.View
-  
+
   ...
 end
 
 ```
-        
+
 3) Add helper `render_gon_script` to you layout in `/web/templates/layout/app.html.eex` before main javascript file:
 
 ```elixir
 
   ...
-  
+
   <%= render_gon_script(@conn) %>
   <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
 </body>
@@ -70,9 +70,9 @@ For using gon in controllers just add:
 defmodule Project.Controller do
   use Project.Web, :controller
   use PhoenixGon.Controller
-  
+
   ...
-  
+
 end
 ```
 
@@ -94,7 +94,7 @@ Example:
   end
 ```
 
-### JavaScript 
+### JavaScript
 
 Gon object is kept in `window`.
 
@@ -127,12 +127,12 @@ Phoenix env methods:
   - `isDev()` - Returns boolean if development env.
   - `isProd()` - Returns boolean if production env.
   - `isCustomEnv(env)` - Return bollean if custom env.
-    
+
 Assets variables methods:
 
   - `assets()` - Returns all variables setting in config and controllers.
   - `getAssets(key)` - Returns variable by key.
-  
+
 ## Contributors
 
 Special thanks to Andrey Soshchenko @getux.

@@ -1,0 +1,12 @@
+language: elixir
+elixir:
+    - 1.3.4
+
+otp_release:
+    - 19.0
+
+notifications:
+    email: false
+
+sudo: true
+
