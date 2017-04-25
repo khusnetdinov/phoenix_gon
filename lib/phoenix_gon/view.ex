@@ -4,10 +4,12 @@ defmodule PhoenixGon.View do
   import Phoenix.HTML.Tag
 
   @moduledoc """
+  Adds templates helpers for rendering and adding javascript code to browser.
   """
 
 
   @doc """
+  Returns javascript code what adds phoenix variables to javascript and browser.
   """
   @spec render_gon_script(Plug.Conn.t) :: Plug.Conn.t
   def render_gon_script(conn) do
@@ -17,10 +19,9 @@ defmodule PhoenixGon.View do
   end
 
 
-  @doc """
-  """
+  @doc false
   @spec script(Plug.Conn) :: List.t
-  def script(conn) do
+  defp script(conn) do
     """
     var #{namespace(conn)} = (function(window) {
       var phoenixEnv = '#{settings(conn)[:env]}';

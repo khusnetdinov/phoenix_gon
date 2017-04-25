@@ -3,7 +3,7 @@ defmodule PhoenixGon.Mixfile do
 
   def project do
     [app: :phoenix_gon,
-     version: "0.1.0",
+     version: "0.2.0",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -19,13 +19,13 @@ defmodule PhoenixGon.Mixfile do
 
   defp description do
     """
-    PhoenixGon hex - get your Phoenix variabales is your JavaScript.
+    PhoenixGon hex - your Phoenix variables in your JavaScript.
     """
   end
 
   defp package do
     [name: :phoenix_gon,
-     files: ~w{lib, config, test} ++
+     files: ~w{lib} ++
             ~w{mix.exs README.md},
      maintainers: ["Marat Khusnetdinov"],
      licenses: ["MIT"],

@@ -1,12 +1,14 @@
-defmodule PhoenixGon.Web do
+defmodule PhoenixGon.Controller do
   import Plug.Conn
   import PhoenixGon.Utils
 
   @moduledoc """
+  Adds helpers for working with gon on elixir controller modules.
   """
 
 
   @doc """
+  Put variables to gon.
   """
   @spec put_gon(Plug.Conn.t, Atom.t, any()) :: Plug.Conn.t
   def put_gon(conn, key, value) when is_atom(key) do
@@ -29,6 +31,7 @@ defmodule PhoenixGon.Web do
 
 
   @doc """
+  Update variables in gon.
   """
   @spec update_gon(Plug.Conn.t, Atom.t, any()) :: Plug.Conn.t
   def update_gon(conn, key, value) when is_atom(key) do
@@ -49,6 +52,7 @@ defmodule PhoenixGon.Web do
 
 
   @doc """
+  Remove variable from gon.
   """
   @spec drop_gon(Plug.Conn, Atom.t) :: Plug.Conn.t
   def drop_gon(conn, key) when is_atom(key) do
@@ -65,6 +69,7 @@ defmodule PhoenixGon.Web do
 
 
   @doc """
+  Returns variable.
   """
   @spec get_gon(Plugg.Conn, Atom.t) :: any()
   def get_gon(conn, key) when is_atom(key) do
@@ -75,8 +80,7 @@ defmodule PhoenixGon.Web do
   @doc false
   defmacro __using__([]) do
     quote do
-      import PhoenixGon.Web
+      import PhoenixGon.Controller
     end
   end
 end
-

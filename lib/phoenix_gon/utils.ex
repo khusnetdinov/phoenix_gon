@@ -1,32 +1,38 @@
 defmodule PhoenixGon.Utils do
   @moduledoc """
+  Usefull methods for elixir modules
   """
 
   @doc """
+  Return if mix env dev
   """
   @spec mix_env_dev?(Plug.Conn.t) :: Boolean.t
   def mix_env_dev?(conn), do: variables(conn).env == :dev
 
 
   @doc """
+  Return if mix env prod
   """
   @spec mix_env_prod?(Plug.Conn.t) :: Booleant.t
   def mix_env_prod?(conn), do: variables(conn).env == :prod
 
 
   @doc """
+  Return elixir gon map.
   """
   @spec variables(Plug.Conn.t) :: Plug.Conn.t
   def variables(conn), do: conn.private[:phoenix_gon]
 
 
   @doc """
+  Retusn elixir assets.
   """
   @spec assets(Plug.Conn) :: Map.t
   def assets(conn), do: variables(conn).assets
 
 
   @doc """
+  Returns all elixir settings.
   """
   @spec settings(Plug.Conn) :: Map.t
   def settings(conn) do
@@ -39,6 +45,7 @@ defmodule PhoenixGon.Utils do
 
 
   @doc """
+  Return current gon namespace.
   """
   @spec namespace(Plug.Conn) :: List.t
   def namespace(conn) do
