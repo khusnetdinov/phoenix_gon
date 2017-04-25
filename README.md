@@ -68,7 +68,7 @@ For using gon in controllers just add:
 ```elixir
 defmodule Project.Controller do
   ...
-  use PhoenixGon.Controller
+  import PhoenixGon.Controller
   ...
 end
 ```
