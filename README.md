@@ -86,7 +86,7 @@ Example:
 
 ```elixir
   def index(conn, _params) do
-    conn = put_gon(controller: variable)
+    conn = put_gon(conn, controller: variable)
     render conn, "index.html"
   end
 ```
