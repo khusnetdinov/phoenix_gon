@@ -29,7 +29,7 @@ defmodule PhoenixGon.View do
     """
     var #{namespace(conn)} = (function(window) {
       var phoenixEnv = '#{settings(conn)[:env]}';
-      var phoenixAssets = #{escape_assets(conn)};
+      var phoenixAssets = JSON.parse("#{escape_assets(conn)}");
 
       return {
         getEnv: function() {

@@ -20,10 +20,10 @@ defmodule PhoenixGon.ViewTest do
   describe "#escape_assets escapes javascript" do
     test 'text' do
       conn = Pipeline.call(%Conn{}, Pipeline.init([]))
-      conn = put_gon(conn, :malicious, "all your bases</script><script>alert('are belong to us!')</script>")
+      conn = put_gon(conn, :malicious, "all your base</script><script>alert('are belong to us!')</script>")
       
       actual = PhoenixGon.View.escape_assets(conn)
-      expected = "{\\\"malicious\\\":\\\"all your bases<\\/script><script>alert(\\'are belong to us!\\')<\\/script>\\\"}"
+      expected = "{\\\"malicious\\\":\\\"all your base<\\/script><script>alert(\\'are belong to us!\\')<\\/script>\\\"}"
 
       assert expected == actual
     end
