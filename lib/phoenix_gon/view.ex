@@ -18,6 +18,10 @@ defmodule PhoenixGon.View do
     end
   end
 
+  @spec escape_assets(Plug.Conn) :: String.t
+  def escape_assets(conn) do
+    escape_javascript(Poison.encode!(assets(conn)))
+  end
 
   @doc false
   @spec script(Plug.Conn) :: List.t
@@ -25,7 +29,7 @@ defmodule PhoenixGon.View do
     """
     var #{namespace(conn)} = (function(window) {
       var phoenixEnv = '#{settings(conn)[:env]}';
-      var phoenixAssets = #{Poison.encode!(assets(conn))};
+      var phoenixAssets = JSON.parse("#{escape_assets(conn)}");
 
       return {
         getEnv: function() {
