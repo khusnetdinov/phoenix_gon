@@ -41,7 +41,7 @@ defmodule PhoenixGon.View do
         isProd: function() {
           return phoenixEnv === 'prod';
         },
-        isCustomEnv(customEnv) {
+        isCustomEnv: function(customEnv) {
           return phoenixEnv === customEnv;
         },
         assets: function() {
