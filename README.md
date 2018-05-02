@@ -1,4 +1,4 @@
-# PhoenixGon [![Hex.pm](https://img.shields.io/hexpm/v/plug.svg)](https://hex.pm/packages/phoenix_gon) [![Build Status](https://travis-ci.org/khusnetdinov/phoenix_gon.svg?branch=master)](https://travis-ci.org/khusnetdinov/phoenix_gon)
+# PhoenixGon [![Hex.pm](https://img.shields.io/hexpm/v/plug.svg)](https://hex.pm/packages/phoenix_gon) [![Build Status](https://travis-ci.org/khusnetdinov/phoenix_gon.svg?branch=master)](https://travis-ci.org/khusnetdinov/phoenix_gon) [![Open Source Helpers](https://www.codetriage.com/khusnetdinov/phoenix_gon/badges/users.svg)](https://www.codetriage.com/khusnetdinov/phoenix_gon)
 ## Your Phoenix variables in your JavaScript.
 
 ![img](http://res.cloudinary.com/dtoqqxqjv/image/upload/v1492849051/github/gon.png)
