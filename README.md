@@ -10,7 +10,7 @@ by adding `phoenix_gon` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:phoenix_gon, "~> 0.4.0}]
+  [{:phoenix_gon, "~> 0.4.0"}]
 end
 ```
 
