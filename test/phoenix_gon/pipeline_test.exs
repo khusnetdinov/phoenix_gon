@@ -16,11 +16,11 @@ defmodule PhoenixGon.PipelineTest do
     end
   end
 
-describe "connection" do
-  test "call" do
-    conn =  Pipeline.call(%Conn{}, Pipeline.init([]))
-    actual = conn.private[:phoenix_gon].env
-    expectation = Pipeline.init([]).env
+  describe "connection" do
+    test "call" do
+      conn = Pipeline.call(%Conn{}, Pipeline.init([]))
+      actual = conn.private[:phoenix_gon].env
+      expectation = Pipeline.init([]).env
 
       assert actual == expectation
     end

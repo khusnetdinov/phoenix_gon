@@ -7,24 +7,23 @@ defmodule PhoenixGon.View do
   Adds templates helpers for rendering and adding javascript code to browser.
   """
 
-
   @doc """
   Returns javascript code what adds phoenix variables to javascript and browser.
   """
-  @spec render_gon_script(Plug.Conn.t) :: Plug.Conn.t
+  @spec render_gon_script(Plug.Conn.t()) :: Plug.Conn.t()
   def render_gon_script(conn) do
-    content_tag(:script, [type: "text/javascript"]) do
-     raw(script(conn))
+    content_tag(:script, type: "text/javascript") do
+      raw(script(conn))
     end
   end
 
-  @spec escape_assets(Plug.Conn) :: String.t
+  @spec escape_assets(Plug.Conn) :: String.t()
   def escape_assets(conn) do
     escape_javascript(Poison.encode!(assets(conn)))
   end
 
   @doc false
-  @spec script(Plug.Conn) :: List.t
+  @spec script(Plug.Conn) :: List.t()
   defp script(conn) do
     """
     var #{namespace(conn)} = (function(window) {
