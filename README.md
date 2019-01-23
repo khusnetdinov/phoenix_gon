@@ -33,8 +33,8 @@ end
 Plug accepts options:
 
     - `:env` - this option for hard overloading Mix.env.
-    - `:namespace` - namescpase for javacript object in global window space.
-    - `:assets` - map for keeping permament variables in javascript.
+    - `:namespace` - namespace for javascript object in global window space.
+    - `:assets` - map for keeping permanent variables in javascript.
 
 2) Add possibility to use view helper by adding `use PhoenixGon.View` in templates in `web/views/layout_view.ex` file:
 
