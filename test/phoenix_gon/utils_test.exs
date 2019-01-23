@@ -9,7 +9,7 @@ defmodule PhoenixGon.UtilsTest do
 
   describe "#mix_env_dev?" do
     test 'env' do
-      conn = Pipeline.call(%Conn{}, Pipeline.init([env: :dev]))
+      conn = Pipeline.call(%Conn{}, Pipeline.init(env: :dev))
 
       actual = mix_env_dev?(conn)
       expectation = true
@@ -20,7 +20,7 @@ defmodule PhoenixGon.UtilsTest do
 
   describe "#mix_env_prod?" do
     test 'prod' do
-      conn = Pipeline.call(%Conn{}, Pipeline.init([env: :prod]))
+      conn = Pipeline.call(%Conn{}, Pipeline.init(env: :prod))
 
       actual = mix_env_prod?(conn)
       expectation = true
@@ -31,7 +31,7 @@ defmodule PhoenixGon.UtilsTest do
 
   describe "#variables" do
     test 'conn' do
-      conn = Pipeline.call(%Conn{}, Pipeline.init([env: nil]))
+      conn = Pipeline.call(%Conn{}, Pipeline.init(env: nil))
 
       actual = variables(conn)
       expectation = %PhoenixGon.Storage{}
@@ -42,7 +42,7 @@ defmodule PhoenixGon.UtilsTest do
 
   describe "#assets" do
     test 'conn' do
-      conn = Pipeline.call(%Conn{}, Pipeline.init([env: nil]))
+      conn = Pipeline.call(%Conn{}, Pipeline.init(env: nil))
 
       actual = assets(conn)
       expectation = %{}
@@ -53,7 +53,7 @@ defmodule PhoenixGon.UtilsTest do
 
   describe "settings" do
     test 'conn' do
-      conn = Pipeline.call(%Conn{}, Pipeline.init([env: nil]))
+      conn = Pipeline.call(%Conn{}, Pipeline.init(env: nil))
 
       actual = settings(conn)
       expectation = [compatibility: :native, env: nil, namespace: nil]
@@ -64,7 +64,7 @@ defmodule PhoenixGon.UtilsTest do
 
   describe "#namescpase" do
     test 'conn' do
-      conn = Pipeline.call(%Conn{}, Pipeline.init([namespace: TestCase]))
+      conn = Pipeline.call(%Conn{}, Pipeline.init(namespace: TestCase))
 
       actual = namespace(conn)
       expectation = "TestCase"

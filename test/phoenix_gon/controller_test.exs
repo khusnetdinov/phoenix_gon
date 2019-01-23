@@ -39,7 +39,7 @@ defmodule PhoenixGon.ControllerTest do
       conn = drop_gon(conn, :test)
 
       actual = conn.private[:phoenix_gon].assets[:test]
-      expectation = :nil
+      expectation = nil
 
       assert actual == expectation
     end
