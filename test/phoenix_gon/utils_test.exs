@@ -56,7 +56,7 @@ defmodule PhoenixGon.UtilsTest do
       conn = Pipeline.call(%Conn{}, Pipeline.init([env: nil]))
 
       actual = settings(conn)
-      expectation = [compability: :native, env: nil, namespace: nil]
+      expectation = [compatibility: :native, env: nil, namespace: nil]
 
       assert actual == expectation
     end
