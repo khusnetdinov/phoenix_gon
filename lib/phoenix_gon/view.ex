@@ -19,7 +19,11 @@ defmodule PhoenixGon.View do
 
   @spec escape_assets(Plug.Conn) :: String.t()
   def escape_assets(conn) do
-    escape_javascript(Poison.encode!(assets(conn)))
+    conn
+    |> assets
+    |> resolve_assets_case(conn)
+    |> Poison.encode!
+    |> escape_javascript
   end
 
   @doc false
@@ -53,4 +57,28 @@ defmodule PhoenixGon.View do
     })(window);
     """
   end
+
+  @doc false
+  @spec resolve_assets_case(Map.t(), Plug.Conn.t()) :: Map.t()
+  defp resolve_assets_case(assets, conn) do
+    if settings(conn)[:camel_case],
+      do: to_camel_case(assets),
+      else: assets
+  end
+
+  @doc false
+  @spec to_camel_case(Map.t()) :: Map.t()
+  defp to_camel_case(map) when is_map(map) do
+    for {key, value} <- map, into: %{} do
+      new_key =
+        key
+        |> Atom.to_string
+        |> Recase.to_camel
+        |> String.to_atom
+
+      {new_key, to_camel_case(value)}
+    end
+  end
+  defp to_camel_case(value),
+    do: value
 end

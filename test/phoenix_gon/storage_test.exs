@@ -15,6 +15,11 @@ defmodule PhoenixGon.StoregeTest do
       assert storage.namespace == nil
     end
 
+    test "camel_case" do
+      storage = %PhoenixGon.Storage{}
+      assert storage.camel_case == false
+    end
+
     test "assets" do
       storage = %PhoenixGon.Storage{}
       assert storage.assets == %{}
