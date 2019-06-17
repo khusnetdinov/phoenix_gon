@@ -35,6 +35,7 @@ Plug accepts options:
     - `:env` - this option for hard overloading Mix.env.
     - `:namespace` - namespace for javascript object in global window space.
     - `:assets` - map for keeping permanent variables in javascript.
+    - `:camel_case` - if set to true, all assets names will be converted to camel case format on render.
 
 2) Add possibility to use view helper by adding `use PhoenixGon.View` in templates in `web/views/layout_view.ex` file:
 

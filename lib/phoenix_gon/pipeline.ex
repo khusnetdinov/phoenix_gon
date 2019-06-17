@@ -13,7 +13,8 @@ defmodule PhoenixGon.Pipeline do
     %{
       env: Keyword.get(defaults, :env, Mix.env()),
       assets: Keyword.get(defaults, :assets, %{}),
-      namespace: Keyword.get(defaults, :namespace, nil)
+      namespace: Keyword.get(defaults, :namespace, nil),
+      camel_case: Keyword.get(defaults, :camel_case, false)
     }
   end
 
