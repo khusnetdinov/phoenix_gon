@@ -1,15 +1,16 @@
 defmodule PhoenixGon.ViewTest do
   use ExUnit.Case, async: false
+  use RouterHelper
 
-  import PhoenixGon.TestHelpers
   import PhoenixGon.Controller
 
-  alias PhoenixGon.Pipeline
   alias Plug.Conn
 
   describe "#render_gon_script" do
     test 'text' do
-      conn = Pipeline.call(%Conn{}, Pipeline.init([]))
+      conn =
+        %Conn{}
+        |> with_gon
 
       actual = PhoenixGon.View.render_gon_script(conn)
 
@@ -19,7 +20,9 @@ defmodule PhoenixGon.ViewTest do
 
   describe "#escape_assets" do
     test "escapes javascript" do
-      conn = Pipeline.call(%Conn{}, Pipeline.init([]))
+      conn =
+        %Conn{}
+        |> with_gon
 
       conn =
         put_gon(
@@ -37,7 +40,9 @@ defmodule PhoenixGon.ViewTest do
     end
 
     test "converts assets names and nested maps keys to camel case if corresponding option is enabled" do
-      conn = Pipeline.call(%Conn{}, Pipeline.init([camel_case: true]))
+      conn =
+        %Conn{}
+        |> with_gon(camel_case: true)
 
       actual_assets =
         conn
@@ -45,13 +50,16 @@ defmodule PhoenixGon.ViewTest do
         |> put_gon(:test_map, %{map_key: "Foo Bar"})
         |> PhoenixGon.View.escape_assets()
 
-      expected_assets = "{\\\"testMap\\\":{\\\"mapKey\\\":\\\"Foo Bar\\\"},\\\"fooBar\\\":\\\"Foo Bar\\\"}"
+      expected_assets =
+        "{\\\"testMap\\\":{\\\"mapKey\\\":\\\"Foo Bar\\\"},\\\"fooBar\\\":\\\"Foo Bar\\\"}"
 
       assert actual_assets == expected_assets
     end
 
     test "doesn't convert assets names and nested maps keys to camel case if corresponding option is disabled" do
-      conn = Pipeline.call(%Conn{}, Pipeline.init([]))
+      conn =
+        %Conn{}
+        |> with_gon
 
       actual_assets =
         conn

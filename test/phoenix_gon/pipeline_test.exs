@@ -1,7 +1,6 @@
 defmodule PhoenixGon.PipelineTest do
   use ExUnit.Case, async: false
-
-  import PhoenixGon.TestHelpers
+  use RouterHelper
 
   alias PhoenixGon.Pipeline
   alias Plug.Conn
@@ -18,7 +17,10 @@ defmodule PhoenixGon.PipelineTest do
 
   describe "connection" do
     test "call" do
-      conn = Pipeline.call(%Conn{}, Pipeline.init([]))
+      conn =
+        %Conn{}
+        |> with_gon
+
       actual = conn.private[:phoenix_gon].env
       expectation = Pipeline.init([]).env
 
