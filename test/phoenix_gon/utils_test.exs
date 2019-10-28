@@ -1,15 +1,16 @@
 defmodule PhoenixGon.UtilsTest do
   use ExUnit.Case, async: false
+  use RouterHelper
 
-  import PhoenixGon.TestHelpers
   import PhoenixGon.Utils
 
   alias Plug.Conn
-  alias PhoenixGon.Pipeline
 
   describe "#mix_env_dev?" do
     test 'env' do
-      conn = Pipeline.call(%Conn{}, Pipeline.init(env: :dev))
+      conn =
+        %Conn{}
+        |> with_gon(env: :dev)
 
       actual = mix_env_dev?(conn)
       expectation = true
@@ -20,7 +21,9 @@ defmodule PhoenixGon.UtilsTest do
 
   describe "#mix_env_prod?" do
     test 'prod' do
-      conn = Pipeline.call(%Conn{}, Pipeline.init(env: :prod))
+      conn =
+        %Conn{}
+        |> with_gon(env: :prod)
 
       actual = mix_env_prod?(conn)
       expectation = true
@@ -31,7 +34,9 @@ defmodule PhoenixGon.UtilsTest do
 
   describe "#variables" do
     test 'conn' do
-      conn = Pipeline.call(%Conn{}, Pipeline.init(env: nil))
+      conn =
+        %Conn{}
+        |> with_gon(env: nil)
 
       actual = variables(conn)
       expectation = %PhoenixGon.Storage{}
@@ -42,7 +47,9 @@ defmodule PhoenixGon.UtilsTest do
 
   describe "#assets" do
     test 'conn' do
-      conn = Pipeline.call(%Conn{}, Pipeline.init(env: nil))
+      conn =
+        %Conn{}
+        |> with_gon(env: nil)
 
       actual = assets(conn)
       expectation = %{}
@@ -53,7 +60,9 @@ defmodule PhoenixGon.UtilsTest do
 
   describe "settings" do
     test 'conn' do
-      conn = Pipeline.call(%Conn{}, Pipeline.init(env: nil))
+      conn =
+        %Conn{}
+        |> with_gon(env: nil)
 
       actual = settings(conn)
       expectation = [camel_case: false, compatibility: :native, env: nil, namespace: nil]
@@ -64,7 +73,9 @@ defmodule PhoenixGon.UtilsTest do
 
   describe "#namescpase" do
     test 'conn' do
-      conn = Pipeline.call(%Conn{}, Pipeline.init(namespace: TestCase))
+      conn =
+        %Conn{}
+        |> with_gon(namespace: TestCase)
 
       actual = namespace(conn)
       expectation = "TestCase"

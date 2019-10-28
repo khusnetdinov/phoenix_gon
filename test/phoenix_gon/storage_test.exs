@@ -1,7 +1,6 @@
 defmodule PhoenixGon.StoregeTest do
   use ExUnit.Case, async: false
 
-  import PhoenixGon.TestHelpers
   import PhoenixGon.Storage
 
   describe "default storage" do
