@@ -22,7 +22,7 @@ defmodule PhoenixGon.View do
     conn
     |> assets
     |> resolve_assets_case(conn)
-    |> Poison.encode!
+    |> Jason.encode!
     |> escape_javascript
   end
 
