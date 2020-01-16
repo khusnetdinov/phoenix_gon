@@ -31,22 +31,9 @@ defmodule PhoenixGon.View do
   defp script(conn) do
     """
     var #{namespace(conn)} = (function(window) {
-      var phoenixEnv = '#{settings(conn)[:env]}';
       var phoenixAssets = JSON.parse("#{escape_assets(conn)}");
 
       return {
-        getEnv: function() {
-          return phoenixEnv;
-        },
-        isDev: function() {
-          return phoenixEnv === 'dev';
-        },
-        isProd: function() {
-          return phoenixEnv === 'prod';
-        },
-        isCustomEnv: function(customEnv) {
-          return phoenixEnv === customEnv;
-        },
         assets: function() {
           return phoenixAssets;
         },
@@ -57,6 +44,37 @@ defmodule PhoenixGon.View do
     })(window);
     """
   end
+
+  # @spec script(Plug.Conn.t()) :: String.t()
+  # defp script(conn) do
+  #   """
+  #   var #{namespace(conn)} = (function(window) {
+  #     var phoenixEnv = '#{settings(conn)[:env]}';
+  #     var phoenixAssets = JSON.parse("#{escape_assets(conn)}");
+
+  #     return {
+  #       getEnv: function() {
+  #         return phoenixEnv;
+  #       },
+  #       isDev: function() {
+  #         return phoenixEnv === 'dev';
+  #       },
+  #       isProd: function() {
+  #         return phoenixEnv === 'prod';
+  #       },
+  #       isCustomEnv: function(customEnv) {
+  #         return phoenixEnv === customEnv;
+  #       },
+  #       assets: function() {
+  #         return phoenixAssets;
+  #       },
+  #       getAsset: function(property) {
+  #         return phoenixAssets[property];
+  #       }
+  #     };
+  #   })(window);
+  #   """
+  # end
 
   @doc false
   @spec resolve_assets_case(Map.t(), Plug.Conn.t()) :: Map.t()
