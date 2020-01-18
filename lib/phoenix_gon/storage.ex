@@ -4,6 +4,5 @@ defmodule PhoenixGon.Storage do
   """
 
   @doc false
-  # defstruct env: nil, assets: %{}, compatibility: :native, namespace: nil, camel_case: false
   defstruct assets: %{}, compatibility: :native, namespace: nil, camel_case: false
 end

@@ -6,37 +6,10 @@ defmodule PhoenixGon.UtilsTest do
 
   alias Plug.Conn
 
-  # describe "#mix_env_dev?" do
-  #   test 'env' do
-  #     conn =
-  #       %Conn{}
-  #       |> with_gon(env: :dev)
-
-  #     actual = mix_env_dev?(conn)
-  #     expectation = true
-
-  #     assert actual == expectation
-  #   end
-  # end
-
-  # describe "#mix_env_prod?" do
-  #   test 'prod' do
-  #     conn =
-  #       %Conn{}
-  #       |> with_gon(env: :prod)
-
-  #     actual = mix_env_prod?(conn)
-  #     expectation = true
-
-  #     assert actual == expectation
-  #   end
-  # end
-
   describe "#variables" do
     test 'conn' do
       conn =
         %Conn{}
-        # |> with_gon(env: nil)
         |> with_gon
 
       actual = variables(conn)
@@ -50,7 +23,6 @@ defmodule PhoenixGon.UtilsTest do
     test 'conn' do
       conn =
         %Conn{}
-        # |> with_gon(env: nil)
         |> with_gon
 
       actual = assets(conn)
@@ -64,11 +36,9 @@ defmodule PhoenixGon.UtilsTest do
     test 'conn' do
       conn =
         %Conn{}
-        # |> with_gon(env: nil)
         |> with_gon
 
       actual = settings(conn)
-      # expectation = [camel_case: false, compatibility: :native, env: nil, namespace: nil]
       expectation = [camel_case: false, compatibility: :native, namespace: nil]
 
       assert actual == expectation

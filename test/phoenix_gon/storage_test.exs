@@ -4,11 +4,6 @@ defmodule PhoenixGon.StoregeTest do
   import PhoenixGon.Storage
 
   describe "default storage" do
-    # test "env" do
-    #   storage = %PhoenixGon.Storage{}
-    #   assert storage.env == nil
-    # end
-
     test "namespace" do
       storage = %PhoenixGon.Storage{}
       assert storage.namespace == nil

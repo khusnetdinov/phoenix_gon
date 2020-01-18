@@ -3,17 +3,6 @@ defmodule PhoenixGon.Utils do
   Usefull methods for elixir modules
   """
 
-  # @doc """
-  # Return if mix env dev
-  # """
-  # @spec mix_env_dev?(Plug.Conn.t()) :: Boolean.t()
-  # def mix_env_dev?(conn), do: variables(conn).env == :dev
-
-  # @doc """
-  # Return if mix env prod
-  # """
-  # @spec mix_env_prod?(Plug.Conn.t()) :: Booleant.t()
-  # def mix_env_prod?(conn), do: variables(conn).env == :prod
 
   @doc """
   Return elixir gon struct.

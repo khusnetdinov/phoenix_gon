@@ -11,7 +11,6 @@ defmodule PhoenixGon.Pipeline do
   @spec init(Keyword.t()) :: Map.t()
   def init(defaults) do
     %{
-      # env: Keyword.get(defaults, :env, Mix.env()),
       assets: Keyword.get(defaults, :assets, %{}),
       namespace: Keyword.get(defaults, :namespace, nil),
       camel_case: Keyword.get(defaults, :camel_case, false)

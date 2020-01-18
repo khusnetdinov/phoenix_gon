@@ -8,7 +8,6 @@ defmodule PhoenixGon.PipelineTest do
   describe "initialization" do
     test "init" do
       defaults = [namespace: :test, camel_case: true]
-      # expectation = %{assets: %{}, env: :test, namespace: :test, camel_case: true}
       expectation = %{assets: %{}, namespace: :test, camel_case: true}
       actual = Pipeline.init(defaults)
 
@@ -16,16 +15,4 @@ defmodule PhoenixGon.PipelineTest do
     end
   end
 
-  # describe "connection" do
-  #   test "call" do
-  #     conn =
-  #       %Conn{}
-  #       |> with_gon
-
-  #     actual = conn.private[:phoenix_gon].env
-  #     expectation = Pipeline.init([]).env
-
-  #     assert actual == expectation
-  #   end
-  # end
 end
