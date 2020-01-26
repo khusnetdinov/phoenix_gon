@@ -37,10 +37,10 @@ defmodule PhoenixGon.Mixfile do
   defp deps do
     [
       {:ex_doc, ">= 0.0.0", only: :dev},
-      {:poison, "~> 3.0"},
-      {:phoenix_html, "~> 2.7"},
-      {:plug, "~> 1.0"},
-      {:recase, "~> 0.4"}
+      {:jason, "~> 1.1"},
+      {:phoenix_html, "~> 2.13"},
+      {:plug, "~> 1.8.3"},
+      {:recase, "~> 0.6"}
     ]
   end
 end
