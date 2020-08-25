@@ -22,7 +22,7 @@ defmodule PhoenixGon.View do
     conn
     |> assets
     |> resolve_assets_case(conn)
-    |> Poison.encode!
+    |> json_library().encode!
     |> escape_javascript
   end
 
@@ -81,4 +81,8 @@ defmodule PhoenixGon.View do
   end
   defp to_camel_case(value),
     do: value
+
+  defp json_library do
+    Application.get_env(:phoenix_gon, :json_library, Poison)
+  end
 end
