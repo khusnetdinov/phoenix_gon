@@ -148,6 +148,14 @@ Assets variables methods:
 - `assets()` - Returns all variables setting in config and controllers.
 - `getAsset(key)` - Returns variable by key.
 
+### JSON Library
+
+Per default the `Poison` is used to encode JSON data, however this can be changed via the application configuration:
+
+```elixir
+config :phoenix_gon, :json_library, Jason
+```
+
 ## Contributors
 
 Special thanks to Andrey Soshchenko @getux.
