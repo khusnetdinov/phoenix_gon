@@ -4,7 +4,7 @@ defmodule PhoenixGon.Mixfile do
   def project do
     [
       app: :phoenix_gon,
-      version: "0.4.0",
+      version: "0.4.1",
       elixir: "~> 1.4",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
@@ -38,7 +38,7 @@ defmodule PhoenixGon.Mixfile do
     [
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:jason, "~> 1.1"},
-      {:phoenix_html, "~> 2.13"},
+      {:phoenix_html, "~> 3.2"},
       {:plug, "~> 1.8.3"},
       {:recase, "~> 0.6"}
     ]
