@@ -32,7 +32,9 @@ defmodule PhoenixGon.Utils do
   """
   @spec settings(Plug.Conn.t()) :: List.t()
   def settings(conn) do
-    Enum.filter(Map.from_struct(variables(conn)), fn {key, _} -> key != :assets end)
+    Enum.filter(Map.from_struct(variables(conn)), fn {key, _} ->
+      key != :assets
+    end)
   end
 
   @doc false

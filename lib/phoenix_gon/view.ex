@@ -72,13 +72,14 @@ defmodule PhoenixGon.View do
     for {key, value} <- map, into: %{} do
       new_key =
         key
-        |> Atom.to_string
-        |> Recase.to_camel
-        |> String.to_atom
+        |> Atom.to_string()
+        |> Recase.to_camel()
+        |> String.to_atom()
 
       {new_key, to_camel_case(value)}
     end
   end
+
   defp to_camel_case(value),
     do: value
 

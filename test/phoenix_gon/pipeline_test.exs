@@ -8,7 +8,14 @@ defmodule PhoenixGon.PipelineTest do
   describe "initialization" do
     test "init" do
       defaults = [namespace: :test, camel_case: true]
-      expectation = %{assets: %{}, env: :test, namespace: :test, camel_case: true}
+
+      expectation = %{
+        assets: %{},
+        env: :test,
+        namespace: :test,
+        camel_case: true
+      }
+
       actual = Pipeline.init(defaults)
 
       assert actual == expectation
