@@ -46,5 +46,7 @@ defmodule PhoenixGon.Pipeline do
 
   @doc false
   @spec variables_with(Map.t()) :: PhoenixGon.Storage.t()
+  defp variables_with(%{assets: fun} = defaults) when is_function(fun), do: variables_with(Map.merge(defaults, %{assets: fun.()})) |> IO.inspect
   defp variables_with(defaults), do: Map.merge(%PhoenixGon.Storage{}, defaults)
+
 end
