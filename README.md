@@ -150,10 +150,10 @@ Assets variables methods:
 
 ### JSON Library
 
-Per default the `Poison` is used to encode JSON data, however this can be changed via the application configuration:
+Per default the `Jason` is used to encode JSON data, however this can be changed via the application configuration, eg:
 
 ```elixir
-config :phoenix_gon, :json_library, Jason
+config :phoenix_gon, :json_library, Poison
 ```
 
 ## Contributors
