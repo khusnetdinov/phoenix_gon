@@ -16,23 +16,25 @@ defmodule PhoenixGon.Utils do
   def mix_env_prod?(conn), do: variables(conn).env == :prod
 
   @doc """
-  Return elixir gon map.
+  Return elixir gon struct.
   """
-  @spec variables(Plug.Conn.t()) :: Plug.Conn.t()
+  @spec variables(Plug.Conn.t()) :: %PhoenixGon.Storage{}
   def variables(conn), do: conn.private[:phoenix_gon]
 
   @doc """
   Retusn elixir assets.
   """
-  @spec assets(Plug.Conn) :: Map.t()
+  @spec assets(Plug.Conn.t()) :: Map.t()
   def assets(conn), do: variables(conn).assets
 
   @doc """
   Returns all elixir settings.
   """
-  @spec settings(Plug.Conn) :: Map.t()
+  @spec settings(Plug.Conn.t()) :: List.t()
   def settings(conn) do
-    Enum.filter(Map.from_struct(variables(conn)), fn {key, _} -> key != :assets end)
+    Enum.filter(Map.from_struct(variables(conn)), fn {key, _} ->
+      key != :assets
+    end)
   end
 
   @doc false
@@ -42,7 +44,7 @@ defmodule PhoenixGon.Utils do
   @doc """
   Return current gon namespace.
   """
-  @spec namespace(Plug.Conn) :: List.t()
+  @spec namespace(Plug.Conn.t()) :: String.t()
   def namespace(conn) do
     name = settings(conn, :namespace)
 
