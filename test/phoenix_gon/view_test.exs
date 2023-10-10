@@ -51,7 +51,7 @@ defmodule PhoenixGon.ViewTest do
         |> PhoenixGon.View.escape_assets()
 
       expected_assets =
-        "{\\\"testMap\\\":{\\\"mapKey\\\":\\\"Foo Bar\\\"},\\\"fooBar\\\":\\\"Foo Bar\\\"}"
+        "{\\\"fooBar\\\":\\\"Foo Bar\\\",\\\"testMap\\\":{\\\"mapKey\\\":\\\"Foo Bar\\\"}}"
 
       assert actual_assets == expected_assets
     end

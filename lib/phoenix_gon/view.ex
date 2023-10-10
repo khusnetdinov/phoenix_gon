@@ -10,24 +10,24 @@ defmodule PhoenixGon.View do
   @doc """
   Returns javascript code what adds phoenix variables to javascript and browser.
   """
-  @spec render_gon_script(Plug.Conn.t()) :: Plug.Conn.t()
+  @spec render_gon_script(Plug.Conn.t()) :: any()
   def render_gon_script(conn) do
     content_tag(:script, type: "text/javascript") do
       raw(script(conn))
     end
   end
 
-  @spec escape_assets(Plug.Conn) :: String.t()
+  @spec escape_assets(Plug.Conn.t()) :: String.t()
   def escape_assets(conn) do
     conn
     |> assets
     |> resolve_assets_case(conn)
     |> json_library().encode!
-    |> escape_javascript
+    |> javascript_escape
   end
 
   @doc false
-  @spec script(Plug.Conn) :: List.t()
+  @spec script(Plug.Conn.t()) :: String.t()
   defp script(conn) do
     """
     var #{namespace(conn)} = (function(window) {
@@ -72,17 +72,18 @@ defmodule PhoenixGon.View do
     for {key, value} <- map, into: %{} do
       new_key =
         key
-        |> Atom.to_string
-        |> Recase.to_camel
-        |> String.to_atom
+        |> Atom.to_string()
+        |> Recase.to_camel()
+        |> String.to_atom()
 
       {new_key, to_camel_case(value)}
     end
   end
+
   defp to_camel_case(value),
     do: value
 
   defp json_library do
-    Application.get_env(:phoenix_gon, :json_library, Poison)
+    Application.get_env(:phoenix_gon, :json_library, Jason)
   end
 end
